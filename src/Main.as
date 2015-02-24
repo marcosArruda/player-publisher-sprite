@@ -1,5 +1,7 @@
 package {
 
+import br.com.marcos.FormItemContainer;
+import br.com.marcos.SitePlayer;
 import br.com.marcos.TextFormatFactory;
 
 import flash.display.Sprite;
@@ -23,10 +25,17 @@ public class Main extends Sprite {
             stage.scaleMode = StageScaleMode.NO_SCALE;
             stage.align = StageAlign.TOP_LEFT;
 
-            var t1:TextField = TextFormatFactory.formatInputText("rtmp://host:port/application");
-            addChild(t1);
+            var item1:FormItemContainer = new FormItemContainer("MODELO: rtmp://host:port/application");
+            addChild(item1);
 
+
+
+            var sitePlayer:SitePlayer = new SitePlayer();
+            addChild(sitePlayer);
+            /*
             var playerSprite:MediaPlayerSprite = new MediaPlayerSprite();
+
+
             var videoElement:VideoElement = new VideoElement();
             var dynResource:DynamicStreamingResource = new DynamicStreamingResource("rtmp://54.94.202.33:1935/live");
             dynResource.streamType = "live";
@@ -35,11 +44,13 @@ public class Main extends Sprite {
             ]);
             videoElement.resource = dynResource;
             playerSprite.width = playerWidth;
-            playerSprite.height = playerHeight;
+            playerSprite.height = playerHeight
+            playerSprite.x = 10;
+            playerSprite.y = 30;
             addChild(playerSprite);
             playerSprite.mediaPlayer.autoPlay = true;
             playerSprite.media = videoElement;
-
+            */
             /*
 
              stage.displayState=StageDisplayState.FULL_SCREEN;
