@@ -6,15 +6,16 @@ import org.osmf.elements.VideoElement;
 import org.osmf.media.MediaPlayerSprite;
 import org.osmf.net.DynamicStreamingItem;
 import org.osmf.net.DynamicStreamingResource;
+import org.osmf.net.StreamType;
 
 public class SitePlayer extends MediaPlayerSprite{
     public function SitePlayer(w:int=640,h:int=360) {
         super();
         var videoElement:VideoElement = new VideoElement();
-        var dynResource:DynamicStreamingResource = new DynamicStreamingResource("rtmp://54.94.202.33:1935/live");
-        dynResource.streamType = "live";
+        var dynResource:DynamicStreamingResource = new DynamicStreamingResource(StreamApp.MYSERVER_LIVE);
+        dynResource.streamType = StreamType.LIVE;
         dynResource.streamItems = Vector.<DynamicStreamingItem>([
-            new DynamicStreamingItem("myStream", 1000)
+            new DynamicStreamingItem(StreamName.MYSTREAM, 1000)
         ]);
         videoElement.resource = dynResource;
         this.width = w;
